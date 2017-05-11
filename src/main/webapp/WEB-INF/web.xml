@@ -5,7 +5,7 @@
     <display-name>AudioLibrary</display-name>
 
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>dispatcher</welcome-file>
     </welcome-file-list>
 
     <servlet>
@@ -17,7 +17,7 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>WEB-INF/appContext.xml</param-value>
         </init-param>
-        <load-on-startup>1</load-on-startup>
+        <load-on-startup>0</load-on-startup>
     </servlet>
 
     <servlet-mapping>
@@ -25,4 +25,10 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
 </web-app>
