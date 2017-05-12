@@ -6,7 +6,10 @@
     </head>
     <body>
         <h1>${greeting}</h1>
-        <label for="audio-selection">Choose audio</label>
-        <input id="audio-selection" name="audio" type="file">
+        <form action="play" method="get">
+            <label for="audio-selection">Choose audio</label>
+            <input id="audio-selection" name="audio" type="file">
+            <input type="submit"/>
+        </form>
     </body>
 </html>
