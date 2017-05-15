@@ -1,13 +1,15 @@
 package ua.audiolibrary.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.audiolibrary.domain.Audio;
+import ua.audiolibrary.infrastructure.AudioPlayer;
 import ua.audiolibrary.repository.AudioRepository;
 
-@Service(value = "audioService")
+import javax.annotation.Resource;
+
+@Service(value = "basicAudioService")
 public class BasicAudioService implements AudioService {
-    @Autowired
+    @Resource(name = "inMemoryAudioRepository")
     private AudioRepository audioRepository;
 
     @Override
@@ -19,5 +21,10 @@ public class BasicAudioService implements AudioService {
             System.out.println(e.getMessage());
         }
         return result;
+    }
+
+    @Override
+    public void playAudio(String audioPath) {
+        AudioPlayer.play(audioPath);
     }
 }

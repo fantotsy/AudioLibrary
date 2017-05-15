@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository(value = "audioRepository")
+@Repository(value = "inMemoryAudioRepository")
 public class InMemoryAudioRepository implements AudioRepository {
     private final List<Audio> audios;
 

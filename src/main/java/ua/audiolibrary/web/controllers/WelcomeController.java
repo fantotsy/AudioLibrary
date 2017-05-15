@@ -1,8 +1,5 @@
 package ua.audiolibrary.web.controllers;
 
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,12 +9,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ua.audiolibrary.domain.Audio;
 import ua.audiolibrary.service.AudioService;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import javax.annotation.Resource;
 
 @Controller(value = "welcomeController")
 public class WelcomeController {
-    @Autowired
+    @Resource(name = "basicAudioService")
     private AudioService audioService;
 
     @RequestMapping(value = "/")
@@ -28,7 +24,7 @@ public class WelcomeController {
 
     @RequestMapping(value = "/play", method = RequestMethod.GET)
     public String playAudio(ModelMap model, @RequestParam("audio") String audioName) {
-        playSound(audioName);
+        audioService.playAudio(audioName);
         model.addAttribute("greeting", "Audio, play!");
         return "home";
     }
@@ -41,26 +37,5 @@ public class WelcomeController {
         System.out.println(audio.getFileName());
     }
 
-    public void playSound(String audioName) {
-        String baseFolderPath = "C:\\Users\\Anton_Tsymbal\\Downloads\\";
 
-        try {
-            FileInputStream fileInputStream = new FileInputStream(baseFolderPath + audioName);
-            Player player = new Player(fileInputStream);
-
-            new Thread() {
-                @Override
-                public void run() {
-                    try {
-                        player.play();
-                    } catch (JavaLayerException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }.start();
-
-        } catch (FileNotFoundException | JavaLayerException e) {
-            e.printStackTrace();
-        }
-    }
 }
