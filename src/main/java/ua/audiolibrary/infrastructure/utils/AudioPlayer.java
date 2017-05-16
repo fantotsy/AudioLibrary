@@ -1,4 +1,4 @@
-package ua.audiolibrary.infrastructure;
+package ua.audiolibrary.infrastructure.utils;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
@@ -8,11 +8,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class AudioPlayer {
-    private static final String BASE_AUDIO_FOLDER_PATH = "C:\\Users\\Anton_Tsymbal\\Downloads\\";
+    private static final String AUDIO_DIRECTORIES_PATH = "D:\\Other\\audio_library\\";
 
     public static void play(String audioPath) {
         try {
-            FileInputStream fileInputStream = new FileInputStream(BASE_AUDIO_FOLDER_PATH + audioPath);
+            FileInputStream fileInputStream = new FileInputStream(AUDIO_DIRECTORIES_PATH + audioPath);
             Player player = new Player(fileInputStream);
 
             new Thread() {

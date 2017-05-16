@@ -1,8 +1,8 @@
-package ua.audiolibrary.service;
+package ua.audiolibrary.service.audio;
 
 import org.springframework.stereotype.Service;
 import ua.audiolibrary.domain.Audio;
-import ua.audiolibrary.infrastructure.AudioPlayer;
+import ua.audiolibrary.infrastructure.utils.AudioPlayer;
 import ua.audiolibrary.repository.AudioRepository;
 
 import javax.annotation.Resource;

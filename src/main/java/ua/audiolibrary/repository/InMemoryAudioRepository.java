@@ -17,7 +17,7 @@ public class InMemoryAudioRepository implements AudioRepository {
 
     @PostConstruct
     public void init() {
-        audios.add(new Audio("C:\\Users\\Anton_Tsymbal\\Downloads\\Gillicuddy_-_05_-_Springish.mp3",
+        audios.add(new Audio("D:\\Other\\audio_library\\basic\\Gillicuddy_-_05_-_Springish.mp3",
                 "Gillicuddy_-_05_-_Springish"));
     }
 

@@ -1,4 +1,4 @@
-package ua.audiolibrary.service;
+package ua.audiolibrary.service.audio;
 
 import ua.audiolibrary.domain.Audio;
 
